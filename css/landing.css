@@ -1,0 +1,145 @@
+/* SEO (Ik heb deze naam gekozen aangezien hier meestal keywords in staan die opgezocht worden op search-engines) */
+.seo-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../assets/images/homepage.png") center / cover no-repeat;
+    aspect-ratio: 3/2;
+    padding: 2rem;
+    color: var(--text-color-light);
+}
+
+h1 {
+    font-size: var(--font-size-big);
+    font-weight: 550;
+    padding-bottom: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.seo-description {
+    font-size: var(--font-size-normal-small);
+    padding-bottom: 2rem;
+    letter-spacing: 0.01rem;
+}
+.product{
+    justify-content: end;
+}
+
+/* Over mij */
+.owner-text {
+    position: relative;
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+.owner-text img {
+    height: 100px;
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -6%;
+    border: var(--text-color-dark) 2px solid;
+}
+
+.owner-text h3 {
+    padding: 4rem 2rem 2.3rem 2rem;
+    border: var(--text-color-dark) 1px solid;
+    border-radius: 1rem;
+    background-color: var(--text-color-light);
+}
+
+@media (min-width: 1024px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            'seo products'
+            'owner products'
+        ;
+        gap: 3rem;
+        padding: 1rem 0.5rem 1rem 0.5rem;
+    }
+
+    .seo-hero {
+        grid-area: seo;
+        aspect-ratio: 0;
+        justify-content: flex-start;
+        height: 380px;
+        text-align: left;
+        align-items: flex-start;
+        border-radius: 1rem;
+    }
+
+    .seo-hero h1 {
+        font-size: 3rem;
+        padding-bottom: 1.5rem;
+        padding-top: 5rem;
+    }
+
+    .seo-description {
+        max-width: 500px;
+    }
+
+    .best-sellers {
+        grid-area: products;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1.5rem;
+        grid-template-areas:
+            'product1 product2'
+            'product1 product3'
+        ;
+    }
+
+    .owner-text {
+        grid-area: owner;
+    }
+
+    .product:nth-child(2) {
+        grid-area: product1;
+    }
+
+    .product:nth-child(3) {
+        grid-area: product2;
+    }
+
+    .product:nth-child(4) {
+        grid-area: product3;
+    }
+
+    .product {
+        max-width: none;
+        max-height: none;
+        aspect-ratio: auto;
+        margin: 0;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .owner-text {
+        display: flex;
+        gap: 1.5rem;
+        border-radius: 1rem;
+        position: static;
+        border: var(--text-color-dark) 2px solid;
+        background-color: var(--text-color-light);
+        align-items: center;
+    }
+
+    .owner-text img {
+        border: none;
+        position: static;
+        transform: none;
+    }
+
+    .owner-text h3 {
+        padding: 0rem;
+        border: none;
+    }
+}

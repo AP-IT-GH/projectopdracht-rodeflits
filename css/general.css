@@ -1,0 +1,342 @@
+/* ############ [CSS-Variabelen]
+   #   ROOT   #
+   ############ */
+:root {
+    /* Colors */
+    --background-color: #EAF6FB;
+    --background-color-light: #FFFFFF;
+    --background-color-dark: #DCF3FC;
+
+    --text-color-dark: #222;
+    --text-color-dark-light: #2f2f2f;
+    --text-color-light: #FFFFFF;
+
+    --primary-color: #4299E1;
+    --primary-color-light: #67ADE7;
+    --primary-color-dark: #3B89CA;
+
+    --secondary-color: #2378DC;
+    --secondary-color-light: #5697E4;
+    --secondary-color-dark: #206FCB;
+
+    /* Text */
+    --font-family: Arial;
+
+    --font-size-small: 1rem;
+    --font-size-normal-small: 1.2rem;
+    --font-size-normal: 1.5rem;
+    --font-size-big: 2rem;
+
+    --line-height: 1.2rem;
+    --line-height-big: 1.5rem;
+
+    --font-weight-light: 500;
+    --font-weight-normal: 550;
+    --font-weight-heavy: 700;
+
+    --border-radius-normal: 0.5rem;
+}
+
+/* ################## [Basic layout, a stijl resetten]
+   #   ESSENTIALS   # [Kleuren van Header + Footer die tegenwerken tegen de bgc van normale website fixxen]
+   ################## */
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    color: var(--text-color-dark);
+}
+
+main {
+    background: var(--background-color);
+    box-shadow: 0 0 0 1000px var(--background-color);
+    clip-path: inset(0 -1000px);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color-dark);
+}
+
+/* Announcement-bar */
+.announcement-bar {
+    display: flex;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 1000px var(--background-color);
+    clip-path: inset(0 -1000px);
+    background-color: var(--background-color);
+}
+
+#countdown {
+    font-weight: 550;
+}
+
+/* ##############
+   #   HEADER   #
+   ############## */
+header {
+    display: grid;
+    grid-template-columns: 64px 1fr 64px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        'logo search-bar burger'
+        'header-nav header-nav header-nav'
+    ;
+    align-items: center;
+    padding: 2rem 1.5rem 0.7rem 1rem;
+    gap: 1.5rem;
+    background-color: var(--background-color-light);
+}
+
+.logo {
+    height: 64px;
+}
+
+/* SEARCH */
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    padding-left: 20px;
+    padding-top: 12px;
+    width: 16px;
+    height: 16px;
+}
+
+.search-container input {
+    padding-left: 48px;
+    height: 40px;
+    font-size: var(--font-size-small);
+    border-radius: 25px;
+    width: 100%;
+    background: #f5f5f5;
+    border: 2px solid transparent;
+}
+
+/* BURGER */
+.burger-toggle {
+    grid-area: burger;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.burger-icon {
+    grid-area: burger;
+    width: 48px;
+}
+
+/* NAVIGATION */
+.header-nav {
+    grid-area: header-nav;
+    padding: 0.5rem 0rem;
+    display: none;
+}
+
+.header-nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    text-decoration: none;
+}
+
+ul li a {
+    color: var(--text-color-dark-light);
+}
+
+.burger-toggle:checked~.header-nav {
+    display: flex;
+}
+
+
+/* ############### [aangezien ze in bijde shop en index worden gebruikt]
+   #  Producten  #
+   ############### */
+.product {
+    max-width: 950px;
+    max-height: 950px;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    margin: 30px;
+    border-radius: 1rem;
+}
+
+.product-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-text {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    border-radius: 0.5rem;
+}
+
+.product-right p:nth-child(2) {
+    color: darkred;
+    text-decoration: line-through;
+}
+
+.product-cart {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    border-radius: var(--border-radius-normal);
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.product-cart-icon {
+    height: 30px;
+}
+
+.product-heart-icon {
+    height: 40px;
+    color: var(--primary-color);
+}
+
+.product-wishlist {
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: transparent;
+    border: none;
+}
+
+.product-left p:nth-child(2) {
+    color: gray;
+}
+
+.product:nth-child(2) {
+    background: url("../assets/images/novaphone.jpg") center / cover;
+}
+
+.product:nth-child(3) {
+    background: url("../assets/images/hyperbook.jpg") center / cover;
+}
+
+.product:nth-child(4) {
+    background: url("../assets/images/aerosound.jpg") center / cover;
+}
+
+.product:nth-child(5) {
+    background: url("../assets/images/lumina.jpg") center / cover;
+}
+
+.product:nth-child(6) {
+    background: url("../assets/images/chronos.jpg") center / cover;
+}
+
+.product:nth-child(7) {
+    background: url("../assets/images/omniscreen.jpg") center / cover;
+}
+
+.catalog {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.cta-button {
+    display: flex;
+    color: var(--text-color-light);
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+}
+
+.catalog p {
+    padding-bottom: 1rem;
+    font-size: var(--font-size-normal);
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--background-color-light);
+    padding: 2rem 2rem 0.75rem 2rem;
+}
+
+.footer-block {
+    padding-bottom: 2rem;
+    line-height: var(--line-height-big);
+}
+
+.footer-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 550;
+    color: var(--text-color-dark-light);
+}
+
+.footer-icon {
+    height: 24px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: var(--text-color-dark) solid 1px;
+    padding-top: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+    header {
+        grid-template-columns: 94px 216px auto 280px;
+        grid-template-areas: 'logo space header-nav search-bar';
+        align-items: center;
+        justify-items: center;
+    }
+
+    .search-container {
+        max-width: 280px;
+        grid-area: search-bar;
+    }
+
+    .header-nav {
+        display: block;
+        grid-area: header-nav;
+    }
+
+    .header-nav ul {
+        gap: 2.5rem;
+    }
+
+    .burger-toggle {
+        display: none;
+    }
+
+    .burger-icon {
+        display: none;
+    }
+
+    .footer-info {
+        padding-top: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .catalog {
+        display: none;
+        padding-top: 0rem;
+    }
+}
